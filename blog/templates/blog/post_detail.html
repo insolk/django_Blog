@@ -18,12 +18,15 @@
                     <p>Published : {{post.published_date}}</p>
                 </div>
             {% endif %}
+            {% if user.is_authenticated %}
             <a href="{% url 'post_edit' pk=post.pk %}" class="btn btn-default">
                 <span class="glyphicon glyphicon-pencil"></span>
             </a>
             <a href="#" onclick="post_remove()" class="btn btn-danger">
                 <span class="glyphicon glyphicon-remove"></span>
             </a>
+            {% endif %}
+
             <h1>{{post.title}}</h1>
             <p>{{post.text|linebreaksbr}}</p>
         </div>
